@@ -3,7 +3,6 @@ from controller import TurnType
 
 
 def init_game():
-    # TODO: add more details
     print('Welcome to the game!\n'
           'You will receive field and will make a turn as X or O\n'
           '\n'
@@ -23,7 +22,6 @@ def visualize_field(field: List[List]):
 
 
 def request_turn(turn_type: TurnType, max_columns: int) -> int:
-    # TODO: add turn description
     print(f'Now is turn of {turn_type.value}')
 
     flag = False
