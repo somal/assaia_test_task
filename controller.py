@@ -15,6 +15,11 @@ class Controller(object):  # TODO: make Singleton
         assert size[0] > 0 and size[1] > 0
 
         self._field = [[TurnType.Nan] * size[1]] * size[0]
+        self._turns_number = -1
+
+    def get_current_turn_type(self) -> TurnType:
+        self._turns_number += 1
+        return list(TurnType)[self._turns_number % (len(TurnType) - 1)]
 
     # TODO: implement
     def is_game_finished(self) -> bool:
