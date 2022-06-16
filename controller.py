@@ -2,13 +2,22 @@ from enum import Enum
 from typing import Tuple, List, Union
 
 
+class Singleton(type):
+    _instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]
+
+
 class TurnType(Enum):
     X = 'X'
     O = 'O'
     Nan = '_'
 
 
-class Controller(object):
+class Controller(metaclass=Singleton):
     def __init__(self, size: Tuple[int, int], win_line_length: int):
         assert isinstance(size, tuple)
         assert len(size) == 2
