@@ -5,6 +5,7 @@ from typing import Tuple
 class TurnType(Enum):
     X = 'X'
     O = 'O'
+    Nan = '_'
 
 
 class Controller(object):  # TODO: make Singleton
@@ -13,7 +14,7 @@ class Controller(object):  # TODO: make Singleton
         assert len(size) == 2
         assert size[0] > 0 and size[1] > 0
 
-        self._field = [[None] * size[1]] * size[0]
+        self._field = [[TurnType.Nan] * size[1]] * size[0]
 
     # TODO: implement
     def is_game_finished(self) -> bool:
@@ -22,3 +23,6 @@ class Controller(object):  # TODO: make Singleton
     # TODO: implement
     def handle_turn(self, column_number: int):
         pass
+
+    def get_field(self):
+        return self._field
