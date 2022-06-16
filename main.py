@@ -1,11 +1,11 @@
-from io import visualize
-from controller import *
+from io import visualize_field, request_turn
+from controller import Controller
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    N, M = 6, 7
-    while not is_game_finished():
+    size = (6, 7)
+    cnt = Controller(size)
+    while not cnt.is_game_finished():
         visualize_field()
         request_turn()
-        handle_turn()
-
+        cnt.handle_turn()

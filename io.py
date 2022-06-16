@@ -1,4 +1,9 @@
 from typing import List
 
-def visualize(field: List[List]):
+
+def visualize_field(field: List[List]):
+    pass
+
+
+def request_turn():
     pass
