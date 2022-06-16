@@ -1,6 +1,14 @@
 from typing import List
 
 
+def init_game():
+    # TODO: add more details
+    print('Welcome to the game!\n'
+          'You will receive field and will make a turn as X or O\n'
+          '\n'
+          'Good luck!')
+
+
 def visualize_field(field: List[List]):
     assert isinstance(field, list)
     assert isinstance(field[0], list)
