@@ -75,3 +75,10 @@ class Controller(metaclass=Singleton):
 
     def get_field(self):
         return self._field
+
+    def get_unavailable_columns(self) -> List[int]:
+        result = []
+        for j in range(self._size[1]):
+            if self._field[0][j] is not TurnType.Nan:
+                result.append(j + 1)
+        return result

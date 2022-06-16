@@ -21,7 +21,7 @@ def visualize_field(field: List[List]):
     print('-' * (2 * m + 1))
 
 
-def request_turn(turn_type: TurnType, max_columns: int) -> int:
+def request_turn(turn_type: TurnType, max_columns: int, unavailable_columns: List[int]) -> int:
     print(f'Now is turn of {turn_type.value}')
 
     flag = False
@@ -35,6 +35,8 @@ def request_turn(turn_type: TurnType, max_columns: int) -> int:
             i = int(i)
             if i < 1 or i > max_columns:
                 print('Error: you have input wrong number')
+            elif i in unavailable_columns:
+                print('This column is busy. Please select another')
             else:
                 flag = True
                 result = i

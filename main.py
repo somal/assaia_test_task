@@ -2,7 +2,6 @@ from input_output import visualize_field, request_turn, init_game, celebrate_win
 from controller import Controller, TurnType
 
 if __name__ == '__main__':
-    # TODO: проверить что можно добавлять в колонку
     # TODO: add description for prints in I/O
     size = (6, 7)
     win_line_length = 4
@@ -11,7 +10,8 @@ if __name__ == '__main__':
     while cnt.get_winner() is None:
         visualize_field(cnt.get_field())
         current_turn_type = cnt.get_current_turn_type()  # type: TurnType
-        column_number = request_turn(current_turn_type, size[1])  # type: int
+        unavailable_columns = cnt.get_unavailable_columns()
+        column_number = request_turn(current_turn_type, size[1], unavailable_columns)  # type: int
         cnt.handle_turn(column_number, current_turn_type)
 
     visualize_field(cnt.get_field())
