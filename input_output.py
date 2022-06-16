@@ -39,3 +39,8 @@ def request_turn(turn_type: TurnType, max_columns: int) -> int:
                 flag = True
                 result = i
     return result
+
+
+def celebrate_winner(winner: TurnType):
+    print(f'Oh! {winner.value} wins!')
+    print('Celebration!')
